@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class User {
 
     private String email;
+    private Boolean teacher;
 
     public String getEmail() {
         return email;
@@ -45,6 +46,7 @@ public class User {
         this.email = user.getEmail();
         this.DisplayName = user.getDisplayName();
         this.photoUrl = user.getPhotoUrl();
+
     }
 
 }
