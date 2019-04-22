@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">TeacherMatch</string>
     <string name="action_settings">Settings</string>
+    <string name="teacher_mat">\nTeacher match</string>
+    <string name="create_acct">Create An Account</string>
+    <string name="login">Log In</string>
+    <string name="enter_a_username">Enter a Username</string>
+    <string name="enter_a_password">Enter a Password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="go">Go</string>
 </resources>
