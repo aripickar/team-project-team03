@@ -7,6 +7,31 @@ import com.google.firebase.auth.FirebaseUser;
 public class User {
 
     private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDisplayName() {
+        return DisplayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        DisplayName = displayName;
+    }
+
+    public Uri getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(Uri photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
     private String DisplayName;
     private Uri photoUrl;
 
