@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button loginButton;
     private Button createAnAccountButton;
-    //private FirebaseAuth mAuth;
+
 
 
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //mAuth = FirebaseAuth.getInstance();
+
 
         createAnAccountButton = findViewById(R.id.create_account);
         createAnAccountButton.setOnClickListener(new View.OnClickListener() {

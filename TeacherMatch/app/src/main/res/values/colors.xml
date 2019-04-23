@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorTeacherMatchPrimary">#9F4646</color>
+    <color name="colorTeacherMatchGrey">#6F7680</color>
+    <color name="colorTeacherMatchGreen">#5FA464</color>
 </resources>
