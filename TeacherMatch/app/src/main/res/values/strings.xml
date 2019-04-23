@@ -4,8 +4,8 @@
     <string name="teacher_mat">Teacher Match</string>
     <string name="create_acct">Create An Account</string>
     <string name="login">Login</string>
-    <string name="enter_a_username">Enter an Email</string>
-    <string name="enter_a_password">Enter a Password</string>
+    <string name="enter_a_username">Enter Your Email</string>
+    <string name="enter_a_password">Enter Your Password</string>
     <string name="username">Email</string>
     <string name="password">Password</string>
     <string name="go">Go</string>
