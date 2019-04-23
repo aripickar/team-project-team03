@@ -6,63 +6,60 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/enter_firstName3"
+        android:id="@+id/aboutText"
         android:layout_width="337dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:hint="Email address (.edu required)"
+        android:hint="Tell us a bit about your classroom"
         android:inputType="textShortMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.362"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_text3" />
+        app:layout_constraintTop_toBottomOf="@+id/about" />
 
     <TextView
-        android:id="@+id/name_text3"
+        android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:text="Email"
+        android:text="About"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_firstName2" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectsHint" />
 
     <TextView
-        android:id="@+id/name_text4"
-        android:layout_width="wrap_content"
+        android:id="@+id/pictures"
+        android:layout_width="211dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:text="Profile Picture"
+        android:text="Add Class Pictures"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_firstName3" />
+        app:layout_constraintTop_toBottomOf="@+id/aboutText" />
 
     <EditText
-        android:id="@+id/enter_firstName2"
-        android:layout_width="337dp"
+        android:id="@+id/subjectsHint"
+        android:layout_width="186dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="eg. Berkeley High School"
+        android:layout_marginStart="28dp"
+        android:hint="eg. Science, Math"
         android:inputType="textShortMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_text2" />
+        app:layout_constraintTop_toBottomOf="@+id/subjects" />
 
     <TextView
-        android:id="@+id/name_text2"
+        android:id="@+id/subjects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:text="School Name"
+        android:text="Subject(s)"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_firstName" />
+        app:layout_constraintTop_toBottomOf="@+id/numHint" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -83,39 +80,28 @@
     </android.support.design.widget.AppBarLayout>
 
     <TextView
-        android:id="@+id/name_text"
+        android:id="@+id/numStudents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:text="Name"
+        android:text="Number of Students"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <EditText
-        android:id="@+id/enter_firstName"
-        android:layout_width="149dp"
+        android:id="@+id/numHint"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:hint="First Name"
+        android:hint="eg. 20"
         android:inputType="textShortMessage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_text" />
-
-    <EditText
-        android:id="@+id/enter_lastName"
-        android:layout_width="148dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:hint="Last Name"
-        android:inputType="textShortMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/enter_firstName"
-        app:layout_constraintTop_toBottomOf="@+id/name_text" />
+        app:layout_constraintTop_toBottomOf="@+id/numStudents" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/nextButton"
         android:layout_width="90dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
@@ -127,6 +113,20 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/colorTeacherMatchPrimary"
+        android:text="Back"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
 
