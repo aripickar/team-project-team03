@@ -77,6 +77,17 @@
                 android:textColor="#000000" />
 
             <TextView
+                android:id="@+id/textViewPostSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/textViewPostPoster"
+                android:text="- Martin Luther King Jr. Academy"
+                android:textSize="14sp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <TextView
                 android:id="@+id/textViewPostTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,7 +100,7 @@
 
 
             <TextView
-                android:id="@+id/textViewPostBody"
+                android:id="@+id/textViewPostDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
