@@ -6,4 +6,5 @@
     <color name="colorTeacherMatchPrimary">#9F4646</color>
     <color name="colorTeacherMatchGrey">#6F7680</color>
     <color name="colorTeacherMatchGreen">#5FA464</color>
+    <color name="colorTeacherMatchBlack">#333333</color>
 </resources>

@@ -5,6 +5,7 @@ import android.net.Uri;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class User {
 
@@ -17,6 +18,10 @@ public class User {
     private ArrayList<Post> posts;
     private String DisplayName;
     private Uri photoUrl;
+    private String description;
+
+    private String teacherID;
+
     //private ArrayList<Message> messages
 
     public User(String email, String firstName, String lastName, int profilePicture) {
@@ -24,7 +29,25 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.profilePicture = profilePicture;
+        this.teacherID = "-1";
 
+    }
+
+    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.profilePicture = profilePicture;
+        if (teacher) {
+            this.teacherID = UUID.randomUUID().toString();
+        } else {
+            this.teacherID = "-1";
+        }
+
+    }
+
+    public String getTeacherID() {
+        return teacherID;
     }
 
     public User(FirebaseUser user) {
@@ -32,6 +55,15 @@ public class User {
         this.DisplayName = user.getDisplayName();
         this.photoUrl = user.getPhotoUrl();
 
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getEmail() {

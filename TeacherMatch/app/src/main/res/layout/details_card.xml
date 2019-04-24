@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostFeedActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewPostDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Details:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorTeacherMatchGrey" />
+
+            <TextView
+                android:id="@+id/textViewPostDetails_Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp"
+                android:text="Ideal textbook would be the Holt McDougal Mathematics: Student Edition Grade 8 (any edition), but any algebra textbooks would be greatly appriciated."
+                android:layout_below="@id/textViewPostDetails"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+            <TextView
+                android:id="@+id/textViewPostDetails_WantsItemLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Wants items like:"
+                android:layout_below="@id/textViewPostDetails_Content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorTeacherMatchGrey"/>
+
+            <ImageView
+                android:id="@+id/imageViewProductPicture"
+                android:layout_width="320dp"
+                android:layout_height="195dp"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@id/textViewPostDetails_WantsItemLike"
+                android:src="@drawable/mcdougal"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/textViewPostDetails_Deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Deadline:"
+                android:layout_below="@id/imageViewProductPicture"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorTeacherMatchGrey"/>
+
+            <TextView
+                android:id="@+id/textViewPostDetails_Deadline_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp"
+                android:text="N/A"
+                android:layout_below="@id/textViewPostDetails_Deadline"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorTeacherMatchBlack"/>
+
+        </RelativeLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

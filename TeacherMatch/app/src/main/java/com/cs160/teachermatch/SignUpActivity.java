@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void login() {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, PostFeedActivity.class);
         startActivity(intent);
     }
 }
