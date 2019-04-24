@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
+public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
 
     private Context mCtx;
     private List<Post> posts;
@@ -39,7 +37,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
         postViewHolder.textViewTitle.setText(post.getTitle());
-        postViewHolder.textViewPrice.setText("$$$");
+        if (post.getPrice() < 10) {
+            postViewHolder.textViewPrice.setText("$");
+        } else if (post.getPrice() < 50) {
+            postViewHolder.textViewPrice.setText("$$");
+        } else {
+            postViewHolder.textViewPrice.setText("$$$");
+        }
         postViewHolder.textViewSchool.setText(post.getSchool());
         postViewHolder.textViewRequest.setText("Request");
         postViewHolder.textViewPoster.setText(post.getTitle());
@@ -52,23 +56,4 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         return posts.size();
     }
 
-    class PostViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView imageView;
-        TextView textViewTeacher, textViewRequest, textViewPrice, textViewSchool,
-                textViewPoster, textViewTitle, textViewDescription;
-
-        public PostViewHolder( View itemView) {
-            super(itemView);
-
-            imageView = itemView.findViewById(R.id.imageView);
-            textViewTeacher = itemView.findViewById(R.id.textViewTeacherFlag);
-            textViewDescription = itemView.findViewById(R.id.textViewPostDescription);
-            textViewPoster = itemView.findViewById(R.id.textViewPostPoster);
-            textViewRequest = itemView.findViewById(R.id.textViewRequestFlag);
-            textViewSchool = itemView.findViewById(R.id.textViewPostSchool);
-            textViewPrice = itemView.findViewById(R.id.textViewPriceFlag);
-            textViewTitle = itemView.findViewById(R.id.textViewPostTitle);
-        }
-    }
 }

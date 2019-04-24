@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostFeedActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewTeacherAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="About Elsa:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorTeacherMatchGrey" />
+
+            <ImageView
+                android:id="@+id/imageViewClassroom"
+                android:layout_width="231dp"
+                android:layout_height="193dp"
+                android:layout_marginLeft="90dp"
+                android:layout_below="@id/textViewTeacherAbout"
+                android:src="@drawable/teacher"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/textViewTeacher_Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp"
+                android:text="I am a math and science teacher at Corte Madera Middle\nSchool. I have been teaching since I graduated from college with a degree in Biology. This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall... "
+                android:layout_below="@id/imageViewClassroom"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+            <Button
+                android:id="@+id/buttonViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:text="View Full Profile"
+                android:layout_below="@id/textViewTeacher_Content"
+
+
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

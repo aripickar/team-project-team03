@@ -92,7 +92,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void login() {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, PostFeedActivity.class);
         startActivity(intent);
     }
 
