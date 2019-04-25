@@ -25,8 +25,6 @@ public class PostDetailsActivity extends AppCompatActivity {
         post = createPost();
         poster = post.getPoster();
 
-        recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new DetailsAdapter(this, post, poster);

@@ -84,7 +84,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
             postViewHolder.textViewSchool.setText(post.getSchool());
             postViewHolder.textViewRequest.setText("Request");
-            postViewHolder.textViewPoster.setText(post.getTitle());
+            postViewHolder.textViewPoster.setText(post.getPoster().getName());
             postViewHolder.textViewDescription.setText(post.getDescription());
             postViewHolder.textViewTeacher.setText(post.getPoster().getName());
 

@@ -4,10 +4,11 @@ import android.net.Uri;
 
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
 
     private String email;
     private Boolean teacher;
@@ -19,7 +20,6 @@ public class User {
     private String DisplayName;
     private Uri photoUrl;
     private String description;
-
     private String teacherID;
 
     //private ArrayList<Message> messages
@@ -57,6 +57,14 @@ public class User {
 
     }
 
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getDescription() {
         return description;

@@ -50,8 +50,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Log.d("Account Creation", "createUserWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    login();
+                                    User user = new User(mAuth.getCurrentUser());
+                                    login(user);
                                     //updateUI(user);
                                 } else {
                                     Log.w("Account Creation", "createUserWithEmail:failure", task.getException());
@@ -65,8 +65,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void login() {
-        Intent intent = new Intent(this, PostFeedActivity.class);
+    private void login(User user) {
+        //TODO: Change to ChooseUserActivity
+        Intent intent = new Intent(this, CreateProfile1Activity.class);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 }
