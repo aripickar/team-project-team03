@@ -10,6 +10,8 @@ import java.util.UUID;
 
 public class User implements Serializable {
 
+    private final String UID;
+
     private String email;
     private Boolean teacher;
     private String firstName;
@@ -22,22 +24,29 @@ public class User implements Serializable {
     private String description;
     private String teacherID;
 
+    private String subject;
+    private String about;
+    private String schoolName;
+    private ArrayList<Uri> classroomPhotos;
+
     //private ArrayList<Message> messages
 
-    public User(String email, String firstName, String lastName, int profilePicture) {
+    public User(String email, String firstName, String lastName, int profilePicture, String UID) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.profilePicture = profilePicture;
         this.teacherID = "-1";
+        this.UID = UID;
 
     }
 
-    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher) {
+    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher, String UID) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.profilePicture = profilePicture;
+        this.UID = UID;
         if (teacher) {
             this.teacherID = UUID.randomUUID().toString();
         } else {
@@ -46,15 +55,68 @@ public class User implements Serializable {
 
     }
 
-    public String getTeacherID() {
-        return teacherID;
-    }
-
     public User(FirebaseUser user) {
         this.email = user.getEmail();
         this.DisplayName = user.getDisplayName();
         this.photoUrl = user.getPhotoUrl();
+        this.UID = user.getUid();
 
+    }
+
+    public String getTeacherID() {
+        return teacherID;
+    }
+
+
+    public String getUID() {
+        return UID;
+    }
+
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        if (!teacherID.equals("-1")) {
+            this.subject = subject;
+        }
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        if (!teacherID.equals("-1")) {
+            this.about = about;
+        }
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        if (!teacherID.equals("-1")) {
+            this.schoolName = schoolName;
+        }
+    }
+
+    public ArrayList<Uri> getClassroomPhotos() {
+        return classroomPhotos;
+    }
+
+    public void setClassroomPhotos(ArrayList<Uri> classroomPhotos) {
+        if (!teacherID.equals("-1")) {
+            this.classroomPhotos = classroomPhotos;
+        }
+    }
+
+    public void addClassroomPhoto(Uri uri) {
+        if (!teacherID.equals("-1")) {
+            classroomPhotos.add(uri);
+        }
     }
 
 
