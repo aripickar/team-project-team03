@@ -31,13 +31,15 @@ public class User implements Serializable {
 
     //private ArrayList<Message> messages
 
-    public User(String email, String firstName, String lastName, int profilePicture, String UID) {
+    public User(String email, String firstName, String lastName, int profilePicture, Boolean teacher) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.profilePicture = profilePicture;
         this.teacherID = "-1";
-        this.UID = UID;
+        this.teacher = teacher;
+//        kinda confused what this is supposed to be
+        this.UID = "";
 
     }
 

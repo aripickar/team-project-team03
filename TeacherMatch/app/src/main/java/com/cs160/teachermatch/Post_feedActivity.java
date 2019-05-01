@@ -41,9 +41,13 @@ public class Post_feedActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
+
+        final Intent passedIntent = getIntent();
+        user = (User)passedIntent.getSerializableExtra("user");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

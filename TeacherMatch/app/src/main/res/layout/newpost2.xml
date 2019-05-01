@@ -14,7 +14,7 @@
         android:ems="10"
         android:text="Other Information?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/input_description" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -41,7 +41,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:text="Why do you need these items?"
+        android:text="Request Description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
@@ -74,18 +74,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/input_description"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:ems="10"
-        android:hint="Tell us why!"
+        android:hint="Why do you need these items?"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_title" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/input_other"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

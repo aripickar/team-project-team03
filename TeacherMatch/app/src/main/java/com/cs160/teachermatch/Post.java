@@ -1,9 +1,10 @@
 package com.cs160.teachermatch;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-public class Post {
+public class Post implements Serializable {
 
     private final String postId;
     private User poster;
@@ -19,6 +20,10 @@ public class Post {
     private String description;
     private String details;
 
+
+
+    private String other;
+
     private String amazonLink;
     private Date deadline;
     private int price;
@@ -33,6 +38,13 @@ public class Post {
         this.description = description;
         this.timePosted = new Date();
         this.postId = UUID.randomUUID().toString();
+    }
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
     }
 
     public String getPostId() {

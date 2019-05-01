@@ -27,6 +27,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private String password;
     private Button goButton;
     private FirebaseAuth mAuth;
+    private User user;
 
 
 
@@ -59,7 +60,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("Login", "signInWithEmail:success");
-                                    User user = new User(mAuth.getCurrentUser());
+                                    user = new User(mAuth.getCurrentUser());
                                     login();
 
                                     //updateUI(user);
@@ -93,6 +94,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     public void login() {
         Intent intent = new Intent(this, PostFeedActivity.class);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 

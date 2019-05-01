@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/links"
+        android:id="@+id/input_link"
         android:layout_width="337dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
@@ -27,7 +27,7 @@
         android:ems="10"
         android:text="Estimated Cost"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/items_example" />
+        app:layout_constraintTop_toBottomOf="@+id/input_items" />
 
     <TextView
         android:id="@+id/name_text4"
@@ -38,7 +38,7 @@
         android:ems="10"
         android:text="Links to Example Items"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cost_input" />
+        app:layout_constraintTop_toBottomOf="@+id/Input_cost" />
 
     <TextView
         android:id="@+id/name_text5"
@@ -49,10 +49,10 @@
         android:ems="10"
         android:text="Date When Items Needed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/links" />
+        app:layout_constraintTop_toBottomOf="@+id/input_link" />
 
     <EditText
-        android:id="@+id/items_example"
+        android:id="@+id/input_items"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -70,7 +70,7 @@
         android:ems="10"
         android:text="Items Wanted"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_example" />
+        app:layout_constraintTop_toBottomOf="@+id/input_title" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <EditText
-        android:id="@+id/title_example"
+        android:id="@+id/input_title"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/input_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -136,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name_text5" />
 
     <EditText
-        android:id="@+id/cost_input"
+        android:id="@+id/Input_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
