@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChooseUserActivity"></activity>
+        <activity
+            android:name=".CreateRequest1Activity"
+            android:label="New Request"/>
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <activity
+            android:name=".Post_feedActivity"
+            android:label="@string/title_activity_post_feed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChooseUserActivity" />
         <activity android:name=".CreateProfile2Activity" />
         <activity android:name=".CreateProfile1Activity" />
         <activity android:name=".PostDetailsActivity" />
@@ -17,6 +25,9 @@
         <activity android:name=".PostFeedActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".CreatePost1Activity" />
+        <activity android:name=".PostSuccessActivity" />
+        <activity android:name=".CreateRequest2Activity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

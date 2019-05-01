@@ -9,5 +9,12 @@
     <string name="username">Email</string>
     <string name="password">Password</string>
     <string name="go">Go</string>
-    <string name="bodyTEMP">Hi, due to budget cuts, our school isn\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to...</string>
+    <string name="bodyTEMP">Hi, due to budget cuts, our school isn\'t providing white board markers to teachers anymore! I have been ...</string>
+    <string name="title_activity_post_feed">post_feed</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_create_request1">CreateRequest1Activity</string>
 </resources>

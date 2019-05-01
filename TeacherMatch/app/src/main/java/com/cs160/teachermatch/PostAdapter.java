@@ -36,7 +36,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
         Post post = posts.get(position);
 
         postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
-        postViewHolder.textViewTitle.setText(post.getTitle());
+//        postViewHolder.textViewTitle.setText(post.getTitle());
         if (post.getPrice() < 10) {
             postViewHolder.textViewPrice.setText("$");
         } else if (post.getPrice() < 50) {
@@ -45,10 +45,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
             postViewHolder.textViewPrice.setText("$$$");
         }
         postViewHolder.textViewSchool.setText(post.getSchool());
-        postViewHolder.textViewRequest.setText("Request");
-        postViewHolder.textViewPoster.setText(post.getTitle());
+        postViewHolder.textViewRequest.setText("REQUEST");
+        postViewHolder.textViewTitle.setText(post.getTitle());
         postViewHolder.textViewDescription.setText(post.getDescription());
-        postViewHolder.textViewTeacher.setText(post.getPoster().getName());
+        postViewHolder.textViewTeacher.setText("TEACHER");
+        postViewHolder.textViewPoster.setText(post.getPoster().getName());
+        postViewHolder.textDaysSince.setText("1 day ago");
+        postViewHolder.textDistAway.setText("2.3 miles");
+        postViewHolder.textViewDetails.setText("View Details");
+
     }
 
     @Override

@@ -10,7 +10,8 @@ class PostViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
     TextView textViewTeacher, textViewRequest, textViewPrice, textViewSchool,
-            textViewPoster, textViewTitle, textViewDescription;
+            textViewPoster, textViewTitle, textViewDescription, textDaysSince, textDistAway,
+            textViewDetails;
 
     public PostViewHolder(final View itemView) {
         super(itemView);
@@ -23,6 +24,11 @@ class PostViewHolder extends RecyclerView.ViewHolder {
         textViewSchool = itemView.findViewById(R.id.textViewPostSchool);
         textViewPrice = itemView.findViewById(R.id.textViewPriceFlag);
         textViewTitle = itemView.findViewById(R.id.textViewPostTitle);
+        textDaysSince = itemView.findViewById(R.id.daysSince);
+        textDistAway = itemView.findViewById(R.id.distanceAway);
+        textViewDetails = itemView.findViewById(R.id.viewDetails);
+
+
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

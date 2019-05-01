@@ -1,5 +1,6 @@
 package com.cs160.teachermatch;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,9 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         adapter = new DetailsAdapter(this, post, poster);
         recyclerView.setAdapter(adapter);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
     }
 

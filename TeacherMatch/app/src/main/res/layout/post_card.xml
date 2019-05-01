@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -15,54 +16,64 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/teacher_headshot"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:src="@drawable/teacher_headshot" />
 
             <TextView
                 android:id="@+id/textViewTeacherFlag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageView"
+                android:layout_below="@+id/textViewPostSchool"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:background="@color/colorTeacherMatchPrimary"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Teacher"
+                android:text="TEACHER"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewRequestFlag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/textViewTeacherFlag"
-                android:layout_below="@id/imageView"
+                android:layout_below="@+id/textViewPostSchool"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/textViewTeacherFlag"
                 android:background="@color/colorTeacherMatchGrey"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:text="Request"
+                android:text="REQUEST"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewPriceFlag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/textViewRequestFlag"
-                android:layout_below="@id/imageView"
+                android:layout_below="@+id/textViewPostSchool"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/textViewRequestFlag"
                 android:background="@color/colorTeacherMatchGreen"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="$"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -72,43 +83,105 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="Eric Jones"
-                android:textSize="18sp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewPostSchool"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/textViewPostPoster"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="-94dp"
+                android:layout_marginTop="-3dp"
+                android:layout_toEndOf="@+id/imageView"
                 android:layout_toRightOf="@id/textViewPostPoster"
-                android:text="- Martin Luther King Jr. Academy"
-                android:textSize="14sp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic"
+                tools:text="Martin Luther King Jr." />
+
+            <TextView
+                android:id="@+id/distanceAway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPostDescription"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="-141dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/textViewPostPoster"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                tools:text="2.2 miles away" />
+
+            <TextView
+                android:id="@+id/viewDetails"
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPostDescription"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="207dp"
+                android:layout_marginLeft="153dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/distanceAway"
+                android:layout_toRightOf="@id/textViewPostPoster"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                tools:text="View Details" />
+
+            <TextView
+                android:id="@+id/daysSince"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="146dp"
+                android:layout_marginLeft="146dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/textViewPostPoster"
+                android:layout_toRightOf="@id/textViewPostPoster"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                tools:text="1 day ago" />
 
             <TextView
                 android:id="@+id/textViewPostTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_below="@id/textViewTeacherFlag"
-                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:text="Extra White Board Markers?"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/textViewPostDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_below="@id/textViewPostTitle"
-                android:textSize="14sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/bodyTEMP"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
         </RelativeLayout>
 

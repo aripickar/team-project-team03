@@ -7,4 +7,6 @@
     <color name="colorTeacherMatchGrey">#6F7680</color>
     <color name="colorTeacherMatchGreen">#5FA464</color>
     <color name="colorTeacherMatchBlack">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#E0CA54</color>
 </resources>

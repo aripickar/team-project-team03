@@ -9,15 +9,20 @@ public class Post {
     private User poster;
     private String posterName;
     private int posterPhoto;
+    private int intDays;
+
     private String Name;
     private Date timePosted;
+
     private String school;
     private String title;
     private String description;
     private String details;
+
     private String amazonLink;
     private Date deadline;
     private int price;
+
     private boolean request;
     private boolean volunteer;
 
