@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CreateRequest1Activity extends AppCompatActivity {
+public class CreateDonation1Activity extends AppCompatActivity {
 
     public Button next;
     private User user;
@@ -15,13 +15,12 @@ public class CreateRequest1Activity extends AppCompatActivity {
     private EditText title;
     private EditText items;
     private EditText cost;
-    private EditText date;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_request1);
+        setContentView(R.layout.new_donation1);
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
         final Intent passedIntent = getIntent();
@@ -31,13 +30,12 @@ public class CreateRequest1Activity extends AppCompatActivity {
         title = findViewById(R.id.input_title);
         items = findViewById(R.id.input_items);
         cost = findViewById(R.id.input_link);
-        date = findViewById(R.id.input_date);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 newPost = new Post(title.getText().toString(), user, "", "");
-                Intent intent = new Intent(CreateRequest1Activity.this, CreateRequest2Activity.class);
+                Intent intent = new Intent(CreateDonation1Activity.this, CreateDonation2Activity.class);
                 intent.putExtra("user", user);
                 intent.putExtra("post", newPost);
                 startActivity(intent);

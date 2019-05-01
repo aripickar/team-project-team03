@@ -7,37 +7,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CreateRequest1Activity extends AppCompatActivity {
+public class CreateDonation2Activity extends AppCompatActivity {
 
     public Button next;
     private User user;
     private Post newPost;
-    private EditText title;
-    private EditText items;
-    private EditText cost;
-    private EditText date;
-
+    private EditText description;
+    private EditText other;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_request1);
+        setContentView(R.layout.new_request2);
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
-
+        newPost = (Post)passedIntent.getSerializableExtra("post");
         next = findViewById(R.id.next);
-        title = findViewById(R.id.input_title);
-        items = findViewById(R.id.input_items);
-        cost = findViewById(R.id.input_link);
-        date = findViewById(R.id.input_date);
+        description = findViewById(R.id.input_description);
+        other = findViewById(R.id.input_other);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newPost = new Post(title.getText().toString(), user, "", "");
-                Intent intent = new Intent(CreateRequest1Activity.this, CreateRequest2Activity.class);
+                if(other.getText().toString().length() != 0){
+                    newPost.setOther(other.getText().toString());
+                }
+                newPost.setDescription(description.getText().toString());
+                Intent intent = new Intent(CreateDonation2Activity.this, PostSuccessActivity.class);
                 intent.putExtra("user", user);
                 intent.putExtra("post", newPost);
                 startActivity(intent);
@@ -46,5 +44,4 @@ public class CreateRequest1Activity extends AppCompatActivity {
 
 
     }
-
 }

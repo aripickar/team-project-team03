@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToLogIn(){
-        Intent intent = new Intent(this, Post_feedActivity.class);
+        Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
 }

@@ -2,9 +2,6 @@ package com.cs160.teachermatch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +20,7 @@ public class CreatePost1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newpost);
+        setContentView(R.layout.new_post_options);
 
         donation = findViewById(R.id.donate_items);
         request = findViewById(R.id.donation_request);
@@ -48,6 +45,14 @@ public class CreatePost1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreatePost1Activity.this, CreateRequest1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        donation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreatePost1Activity.this, CreateDonation1Activity.class);
                 startActivity(intent);
             }
         });
