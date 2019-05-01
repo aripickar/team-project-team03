@@ -113,6 +113,9 @@ public class Post_feedActivity extends AppCompatActivity
         } else if (id == R.id.nav_messages) {
 
         } else if (id == R.id.nav_post) {
+            Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
 
