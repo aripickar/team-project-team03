@@ -17,4 +17,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="title_activity_create_request1">CreateRequest1Activity</string>
+    <string name="teacher_profile_about">
+        I am a math and science teacher at Corte Madera Middle School. I have been teaching since I graduated from college with a degree in Biology.
+        This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall.
+    </string>
+    <string name="teach_profile_students">
+        My students are a diverse group of eighth graders who attend an urban, public elementary school in Northern California.
+        My students come from a variety of socioeconomic and ethnic backgrounds and speak a variety of languages. They come to
+        school with a broad range of learning experiences.My students are eager to learn and do their best. They want to be in school
+        because they want to learn all they can to be successful one day. My students walk into our classroom every day full of life,
+        ready to learn, and excited for what is in store for them that day!
+    </string>
 </resources>

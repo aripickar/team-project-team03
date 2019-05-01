@@ -20,39 +20,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:textSize="12sp"
                 android:text="About Elsa:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey" />
+                android:textColor="@color/colorTeacherMatchGrey"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/imageViewClassroom"
                 android:layout_width="231dp"
                 android:layout_height="193dp"
-                android:layout_marginLeft="90dp"
                 android:layout_below="@id/textViewTeacherAbout"
-                android:src="@drawable/teacher"
-                android:padding="4dp" />
+                android:layout_marginLeft="90dp"
+                android:padding="4dp"
+                android:src="@drawable/teacher" />
 
             <TextView
                 android:id="@+id/textViewTeacher_Content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textSize="14sp"
-                android:text="I am a math and science teacher at Corte Madera Middle\nSchool. I have been teaching since I graduated from college with a degree in Biology. This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall... "
                 android:layout_below="@id/imageViewClassroom"
+                android:layout_marginLeft="5dp"
+                android:text="I am a math and science teacher at Corte Madera Middle\nSchool. I have been teaching since I graduated from college with a degree in Biology. This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall... "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/buttonViewMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textSize="18sp"
-                android:text="View Full Profile"
                 android:layout_below="@id/textViewTeacher_Content"
+                android:layout_centerHorizontal="true"
+                android:text="View Full Profile"
+                android:textSize="18sp"
 
 
                 />

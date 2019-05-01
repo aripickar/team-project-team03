@@ -16,10 +16,10 @@ class PostViewHolder extends RecyclerView.ViewHolder {
     public PostViewHolder(final View itemView) {
         super(itemView);
 
-        imageView = itemView.findViewById(R.id.imageView);
-        textViewTeacher = itemView.findViewById(R.id.textViewTeacherFlag);
+        imageView = itemView.findViewById(R.id.profilePicture);
+        textViewTeacher = itemView.findViewById(R.id.teacherTag);
         textViewDescription = itemView.findViewById(R.id.textViewPostDescription);
-        textViewPoster = itemView.findViewById(R.id.textViewPostPoster);
+        textViewPoster = itemView.findViewById(R.id.name);
         textViewRequest = itemView.findViewById(R.id.textViewRequestFlag);
         textViewSchool = itemView.findViewById(R.id.textViewPostSchool);
         textViewPrice = itemView.findViewById(R.id.textViewPriceFlag);
