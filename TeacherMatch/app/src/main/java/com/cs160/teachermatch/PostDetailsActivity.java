@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 public class PostDetailsActivity extends AppCompatActivity {
 
@@ -19,12 +20,14 @@ public class PostDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
 
+
         recyclerView = findViewById(R.id.post_details_recyclerview);
         Intent intent = getIntent();
 
         //post = intent.getStringExtra("post");
         post = createPost();
         poster = post.getPoster();
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
