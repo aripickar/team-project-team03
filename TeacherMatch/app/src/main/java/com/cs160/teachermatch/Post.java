@@ -11,25 +11,22 @@ public class Post implements Serializable {
     private String posterName;
     private int posterPhoto;
     private int intDays;
-
-    private String Name;
+    private String name;
     private Date timePosted;
-
     private String school;
     private String title;
     private String description;
     private String details;
-
-
-
     private String other;
-
     private String amazonLink;
     private Date deadline;
     private int price;
-
     private boolean request;
     private boolean volunteer;
+
+    public Post(){
+        this.postId = UUID.randomUUID().toString();
+    }
 
     public Post(String title, User poster, String school, String description) {
         this.title = title;
@@ -39,6 +36,28 @@ public class Post implements Serializable {
         this.timePosted = new Date();
         this.postId = UUID.randomUUID().toString();
     }
+
+
+    public Post(String postId, User poster, String posterName, int posterPhoto, int intDays, String name, Date timePosted, String school, String title, String description, String details, String other, String amazonLink, Date deadline, int price, boolean request, boolean volunteer) {
+        this.postId = UUID.randomUUID().toString();
+        this.poster = poster;
+        this.posterName = posterName;
+        this.posterPhoto = posterPhoto;
+        this.intDays = intDays;
+        this.name = name;
+        this.timePosted = timePosted;
+        this.school = school;
+        this.title = title;
+        this.description = description;
+        this.details = details;
+        this.other = other;
+        this.amazonLink = amazonLink;
+        this.deadline = deadline;
+        this.price = price;
+        this.request = request;
+        this.volunteer = volunteer;
+    }
+
     public String getOther() {
         return other;
     }
@@ -72,11 +91,11 @@ public class Post implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public Date getTimePosted() {

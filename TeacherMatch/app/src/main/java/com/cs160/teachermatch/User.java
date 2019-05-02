@@ -33,6 +33,10 @@ public class User implements Serializable {
 
     //private ArrayList<Message> messages
 
+    public User(){
+        this.UID = UUID.randomUUID().toString();
+    }
+
     public User(String email, String firstName, String lastName, int profilePicture, boolean teacher) {
         this.email = email;
         this.firstName = firstName;
@@ -42,7 +46,7 @@ public class User implements Serializable {
         this.teacher = teacher;
 //        kinda confused what this is supposed to be.
 //          Its the Userid, from the authorization
-        this.UID = "";
+        this.UID = UUID.randomUUID().toString();;
 
     }
 
