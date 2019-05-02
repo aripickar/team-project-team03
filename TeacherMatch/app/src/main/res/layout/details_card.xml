@@ -19,33 +19,39 @@
                 android:id="@+id/textViewPostDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginLeft="5dp"
-                android:textSize="12sp"
+                android:layout_marginTop="10dp"
                 android:text="Details:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey" />
+                android:textColor="@color/colorTeacherMatchGrey"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewPostDetails_Content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textSize="14sp"
-                android:text="Ideal textbook would be the Holt McDougal Mathematics: Student Edition Grade 8 (any edition), but any algebra textbooks would be greatly appriciated."
                 android:layout_below="@id/textViewPostDetails"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Ideal textbook would be the Holt McDougal Mathematics: Student Edition Grade 8 (any edition), but any algebra textbooks would be greatly appriciated."
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewPostDetails_WantsItemLike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textSize="12sp"
-                android:text="Wants items like:"
                 android:layout_below="@id/textViewPostDetails_Content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Wants items like:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey"/>
+                android:textColor="@color/colorTeacherMatchGrey"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/imageViewProductPicture"
@@ -60,23 +66,28 @@
                 android:id="@+id/textViewPostDetails_Deadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textSize="12sp"
-                android:text="Deadline:"
                 android:layout_below="@id/imageViewProductPicture"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Deadline:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey"/>
+                android:textColor="@color/colorTeacherMatchGrey"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewPostDetails_Deadline_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textSize="14sp"
-                android:text="N/A"
                 android:layout_below="@id/textViewPostDetails_Deadline"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="N/A"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchBlack"/>
+                android:textColor="@color/colorTeacherMatchBlack"
+                android:textSize="14sp" />
 
         </RelativeLayout>
 
