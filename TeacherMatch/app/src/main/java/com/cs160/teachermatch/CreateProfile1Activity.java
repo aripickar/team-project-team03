@@ -98,6 +98,10 @@ public class CreateProfile1Activity extends AppCompatActivity {
 //            user.setLastName(lastName.getText().toString());
             //user.setSchool()
             //user.setProfilePicture()
+            user.setFirstName(firstName.getText().toString());
+            user.setLastName(lastName.getText().toString());
+            user.setEmail(email.getText().toString());
+            user.setSchoolName(school.getText().toString());
             Intent intent = new Intent(this, CreateProfile2Activity.class);
             intent.putExtra("user", user);
             startActivity(intent);

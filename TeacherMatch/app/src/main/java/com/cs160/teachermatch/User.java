@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class User implements Serializable {
 
-    private final String UID;
+    private String UID;
 
     private String email;
     private Boolean teacher;
@@ -27,18 +27,21 @@ public class User implements Serializable {
     private String subject;
     private String about;
     private String schoolName;
+    private String classSize;
+
     private ArrayList<Uri> classroomPhotos;
 
     //private ArrayList<Message> messages
 
-    public User(String email, String firstName, String lastName, int profilePicture, Boolean teacher) {
+    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.profilePicture = profilePicture;
         this.teacherID = "-1";
         this.teacher = teacher;
-//        kinda confused what this is supposed to be
+//        kinda confused what this is supposed to be.
+//          Its the Userid, from the authorization
         this.UID = "";
 
     }
@@ -65,6 +68,16 @@ public class User implements Serializable {
 
     }
 
+    public void portUser(User oldUser) {
+        this.DisplayName = oldUser.getDisplayName();
+        this.photoUrl = oldUser.getPhotoUrl();
+        this.firstName = oldUser.getFirstName();
+        this.lastName = oldUser.getLastName();
+        this.teacher = oldUser.teacher;
+        this.DisplayName = oldUser.getDisplayName();
+        this.schoolName = oldUser.schoolName;
+    }
+
     public String getTeacherID() {
         return teacherID;
     }
@@ -75,12 +88,21 @@ public class User implements Serializable {
     }
 
 
+    public String getClassSize() {
+        return classSize;
+    }
+
+    public void setClassSize(String classSize) {
+        this.classSize = classSize;
+    }
+
+
     public String getSubject() {
         return subject;
     }
 
     public void setSubject(String subject) {
-        if (!teacherID.equals("-1")) {
+        if (teacherID != "-1") {
             this.subject = subject;
         }
     }
@@ -90,7 +112,7 @@ public class User implements Serializable {
     }
 
     public void setAbout(String about) {
-        if (!teacherID.equals("-1")) {
+        if (teacherID != "-1") {
             this.about = about;
         }
     }
@@ -100,7 +122,7 @@ public class User implements Serializable {
     }
 
     public void setSchoolName(String schoolName) {
-        if (!teacherID.equals("-1")) {
+        if (teacherID != "-1") {
             this.schoolName = schoolName;
         }
     }
@@ -110,13 +132,13 @@ public class User implements Serializable {
     }
 
     public void setClassroomPhotos(ArrayList<Uri> classroomPhotos) {
-        if (!teacherID.equals("-1")) {
+        if (teacherID != "-1") {
             this.classroomPhotos = classroomPhotos;
         }
     }
 
     public void addClassroomPhoto(Uri uri) {
-        if (!teacherID.equals("-1")) {
+        if (teacherID != "-1") {
             classroomPhotos.add(uri);
         }
     }
@@ -143,6 +165,9 @@ public class User implements Serializable {
     }
 
     public String getName() {
+        if (firstName == null || lastName == null) {
+            return "";
+        }
         return firstName.concat(" " + lastName);
     }
 
@@ -197,6 +222,15 @@ public class User implements Serializable {
     public void setPosts(ArrayList<Post> posts) {
         this.posts = posts;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
 
 
 }

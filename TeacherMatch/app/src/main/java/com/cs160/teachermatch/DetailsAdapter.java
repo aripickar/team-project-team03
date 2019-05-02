@@ -83,10 +83,10 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 postViewHolder.textViewPrice.setText("$$$");
             }
             postViewHolder.textViewSchool.setText(post.getSchool());
-            postViewHolder.textViewRequest.setText("Request");
+            postViewHolder.textViewRequest.setText("REQUEST");
             postViewHolder.textViewPoster.setText(post.getPoster().getName());
             postViewHolder.textViewDescription.setText(post.getDescription());
-            postViewHolder.textViewTeacher.setText(post.getPoster().getName());
+            postViewHolder.textViewTeacher.setText("TEACHER");
 
         }
     }

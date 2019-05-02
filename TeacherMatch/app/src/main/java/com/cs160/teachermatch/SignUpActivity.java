@@ -16,6 +16,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,6 +27,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private String password;
     private Button createAccountButton;
     private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 if (task.isSuccessful()) {
                                     Log.d("Account Creation", "createUserWithEmail:success");
                                     User user = new User(mAuth.getCurrentUser());
+                                    database = FirebaseDatabase.getInstance();
+                                    userRef = database.getReference("users");
+                                    userRef.child(user.getUID()).setValue(user);
                                     login(user);
                                     //updateUI(user);
                                 } else {

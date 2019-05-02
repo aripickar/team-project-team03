@@ -16,6 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +32,11 @@ public class Post_feedActivity extends AppCompatActivity
     PostAdapter adapter;
 
     List<Post> posts;
+
+    FirebaseDatabase database;
+    DatabaseReference postsRef;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +44,9 @@ public class Post_feedActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Active Requests");
         setSupportActionBar(toolbar);
+
+        database = FirebaseDatabase.getInstance();
+        postsRef = database.getReference("posts");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
