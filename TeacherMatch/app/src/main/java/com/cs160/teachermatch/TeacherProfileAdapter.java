@@ -93,7 +93,7 @@ public class TeacherProfileAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 
 
