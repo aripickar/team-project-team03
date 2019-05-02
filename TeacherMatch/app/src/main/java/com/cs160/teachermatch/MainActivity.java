@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goToSignUp() {
-        Intent intent = new Intent(this, SignUpActivity.class);
+        Intent intent = new Intent(this, CreateProfile1Activity.class);
         startActivity(intent);
     }
 

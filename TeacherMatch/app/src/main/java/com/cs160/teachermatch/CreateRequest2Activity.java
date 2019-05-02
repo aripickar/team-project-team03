@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateRequest2Activity extends AppCompatActivity {
 
@@ -33,14 +35,28 @@ public class CreateRequest2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(other.getText().toString().length() != 0){
-                    newPost.setOther(other.getText().toString());
+
+                if( TextUtils.isEmpty(description.getText())){
+                    /**
+                     *   You can Toast a message here that the Username is Empty
+                     **/
+                    Toast.makeText(CreateRequest2Activity.this, "A description about your request is required!",
+                            Toast.LENGTH_LONG).show();
+
+                    description.setError( "Description is required" );
+
                 }
-                newPost.setDescription(description.getText().toString());
-                Intent intent = new Intent(CreateRequest2Activity.this, PostSuccessActivity.class);
-                intent.putExtra("user", user);
-                intent.putExtra("post", newPost);
-                startActivity(intent);
+
+                else {
+                    if (other.getText().toString().length() != 0) {
+                        newPost.setOther(other.getText().toString());
+                    }
+                    newPost.setDescription(description.getText().toString());
+                    Intent intent = new Intent(CreateRequest2Activity.this, PostSuccessActivity.class);
+                    intent.putExtra("user", user);
+                    intent.putExtra("post", newPost);
+                    startActivity(intent);
+                }
             }
         });
 
