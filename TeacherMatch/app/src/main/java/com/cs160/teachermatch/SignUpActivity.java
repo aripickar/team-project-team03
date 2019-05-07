@@ -107,9 +107,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void login(User user) {
-        //TODO: Change to ChooseUserActivity
-        Intent intent = new Intent(this, CreateProfile1Activity.class);
-        intent.putExtra("user", user);
-        startActivity(intent);
+        if (type.equals("teacher")) {
+            Intent intent = new Intent(this, CreateProfile1Activity.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, CreateComProfile1.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }
     }
 }

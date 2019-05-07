@@ -31,7 +31,7 @@ public class CreatePost1Activity extends AppCompatActivity {
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
 //        email = findViewById(R.id.email_name);
-        school = findViewById(R.id.school_name);
+        school = findViewById(R.id.occupation);
         //profilePicture
         next = findViewById(R.id.next);
 //        next.setOnClickListener(new View.OnClickListener() {

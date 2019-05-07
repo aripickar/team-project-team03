@@ -1,8 +1,9 @@
 package com.cs160.teachermatch;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class CreateProfile1Activity extends AppCompatActivity {
+public class CreateComProfile1 extends AppCompatActivity {
 
     private User user;
     private EditText firstName, lastName, school;
@@ -20,7 +21,19 @@ public class CreateProfile1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_profile_1);
+        setContentView(R.layout.create_comm_profile1);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+////        FloatingActionButton fab = findViewById(R.id.fab);
+////        fab.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View view) {
+////                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////                        .setAction("Action", null).show();
+////            }
+////        });
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
@@ -35,15 +48,16 @@ public class CreateProfile1Activity extends AppCompatActivity {
                 createProfile2();
             }
         });
-
     }
+
+
 
     private void createProfile2(){
         if( TextUtils.isEmpty(firstName.getText())){
             /**
              *   You can Toast a message here that the Username is Empty
              **/
-            Toast.makeText(CreateProfile1Activity.this, "First name is required!",
+            Toast.makeText(this, "First name is required!",
                     Toast.LENGTH_LONG).show();
 
             firstName.setError( "First name is required" );
@@ -53,7 +67,7 @@ public class CreateProfile1Activity extends AppCompatActivity {
             /**
              *   You can Toast a message here that the Username is Empty
              **/
-            Toast.makeText(CreateProfile1Activity.this, "Last name is required!",
+            Toast.makeText(this, "Last name is required!",
                     Toast.LENGTH_LONG).show();
 
             lastName.setError( "Last name is required" );
@@ -63,10 +77,10 @@ public class CreateProfile1Activity extends AppCompatActivity {
             /**
              *   You can Toast a message here that the Username is Empty
              **/
-            Toast.makeText(CreateProfile1Activity.this, "School is required!",
+            Toast.makeText(this, "Occupation is required!",
                     Toast.LENGTH_LONG).show();
 
-            school.setError( "School is required" );
+            school.setError( "Occupation is required" );
 
         }
         else {
@@ -77,10 +91,11 @@ public class CreateProfile1Activity extends AppCompatActivity {
             user.setFirstName(firstName.getText().toString());
             user.setLastName(lastName.getText().toString());
             user.setSchoolName(school.getText().toString());
-            Intent intent = new Intent(this, CreateProfile2Activity.class);
+            Intent intent = new Intent(this, CreateComProfile2.class);
             intent.putExtra("user", user);
             startActivity(intent);
         }
 
     }
+
 }

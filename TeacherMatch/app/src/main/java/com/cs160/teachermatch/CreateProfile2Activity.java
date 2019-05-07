@@ -66,7 +66,7 @@ public class CreateProfile2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateProfile2Activity.this, PostFeedActivity.class);
+                Intent intent = new Intent(CreateProfile2Activity.this, Post_feedActivity.class);
                 intent.putExtra("user", user);
                 userRef.child(user.getUID()).setValue(user);
                 startActivity(intent);
