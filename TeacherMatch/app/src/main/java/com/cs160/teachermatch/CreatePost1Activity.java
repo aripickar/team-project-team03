@@ -30,7 +30,7 @@ public class CreatePost1Activity extends AppCompatActivity {
         user = (User)passedIntent.getSerializableExtra("user");
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
-        email = findViewById(R.id.email_name);
+//        email = findViewById(R.id.email_name);
         school = findViewById(R.id.school_name);
         //profilePicture
         next = findViewById(R.id.next);

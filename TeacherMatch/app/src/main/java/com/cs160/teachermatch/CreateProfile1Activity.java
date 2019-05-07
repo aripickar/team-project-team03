@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class CreateProfile1Activity extends AppCompatActivity {
 
     private User user;
-    private EditText firstName, lastName, email, school;
+    private EditText firstName, lastName, school;
     private ImageView profilePicture;
     private Button next;
 
@@ -29,7 +29,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
         user = (User)passedIntent.getSerializableExtra("user");
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
-        email = findViewById(R.id.email_name);
         school = findViewById(R.id.school_name);
         //profilePicture
         next = findViewById(R.id.next);
@@ -63,16 +62,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             lastName.setError( "Last name is required" );
 
         }
-        else if( TextUtils.isEmpty(email.getText())){
-            /**
-             *   You can Toast a message here that the Username is Empty
-             **/
-            Toast.makeText(CreateProfile1Activity.this, "Email is required!",
-                    Toast.LENGTH_LONG).show();
-
-            email.setError( "Email is required" );
-
-        }
         else if( TextUtils.isEmpty(school.getText())){
             /**
              *   You can Toast a message here that the Username is Empty
@@ -83,16 +72,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             school.setError( "School is required" );
 
         }
-        else if(!email.getText().toString().contains(".edu")){
-            /**
-             *   You can Toast a message here that the Username is Empty
-             **/
-            Toast.makeText(CreateProfile1Activity.this, "A .edu email is required to sign up as a teacher!",
-                    Toast.LENGTH_LONG).show();
-
-            email.setError( "A .edu email is required" );
-
-        }
         else {
 //            user.setFirstName(firstName.getText().toString());
 //            user.setLastName(lastName.getText().toString());
@@ -100,7 +79,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             //user.setProfilePicture()
             user.setFirstName(firstName.getText().toString());
             user.setLastName(lastName.getText().toString());
-            user.setEmail(email.getText().toString());
             user.setSchoolName(school.getText().toString());
             Intent intent = new Intent(this, CreateProfile2Activity.class);
             intent.putExtra("user", user);

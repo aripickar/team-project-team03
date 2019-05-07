@@ -6,40 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".CreateProfile1Activity">
 
-    <EditText
-        android:id="@+id/email_name"
-        android:layout_width="337dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="Email address (.edu required)"
-        android:inputType="textShortMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cost" />
-
-    <TextView
-        android:id="@+id/cost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:text="Email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/school_name" />
-
     <TextView
         android:id="@+id/name_text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:text="Profile Picture"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_name" />
+        app:layout_constraintTop_toBottomOf="@+id/school_name" />
 
     <EditText
         android:id="@+id/school_name"
@@ -59,11 +35,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:text="School Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+        app:layout_constraintTop_toBottomOf="@+id/last_name" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -87,7 +63,7 @@
 
     <EditText
         android:id="@+id/first_name"
-        android:layout_width="149dp"
+        android:layout_width="337dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:hint="First Name"
@@ -97,14 +73,14 @@
 
     <EditText
         android:id="@+id/last_name"
-        android:layout_width="148dp"
+        android:layout_width="337dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:hint="Last Name"
         android:inputType="textShortMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/first_name"
-        app:layout_constraintTop_toBottomOf="@+id/post_title" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name" />
 
     <Button
         android:id="@+id/next"

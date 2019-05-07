@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -68,6 +69,28 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 }
                              }
                         });
+
+//                else if( TextUtils.isEmpty(email.getText())){
+//                /**
+//                 *   You can Toast a message here that the Username is Empty
+//                 **/
+//                Toast.makeText(CreateProfile1Activity.this, "Email is required!",
+//                        Toast.LENGTH_LONG).show();
+//
+//                email.setError( "Email is required" );
+//
+//            }
+//
+//            else if(!email.getText().toString().contains(".edu")){
+//                /**
+//                 *   You can Toast a message here that the Username is Empty
+//                 **/
+//                Toast.makeText(CreateProfile1Activity.this, "A .edu email is required to sign up as a teacher!",
+//                        Toast.LENGTH_LONG).show();
+//
+//                email.setError( "A .edu email is required" );
+//
+//            }
 
         }
     }
