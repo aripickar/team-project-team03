@@ -8,23 +8,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class CreatePost1Activity extends AppCompatActivity {
+public class ChooseProfileType extends AppCompatActivity {
+
 
     private User user;
     private EditText firstName, lastName, email, school;
     private ImageView profilePicture;
     private Button next;
-    public Button donation;
-    public Button request;
+    public Button teacher;
+    public Button other_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_post_options);
+        setContentView(R.layout.new_user);
 
 
-        donation = findViewById(R.id.donate_items);
-        request = findViewById(R.id.teacher);
+        teacher = findViewById(R.id.teacher);
+        other_user = findViewById(R.id.community_member);
 
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
@@ -42,18 +43,20 @@ public class CreatePost1Activity extends AppCompatActivity {
 //        });
 
 
-        request.setOnClickListener(new View.OnClickListener() {
+        teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreatePost1Activity.this, CreateRequest1Activity.class);
+                Intent intent = new Intent(ChooseProfileType.this, SignUpActivity.class);
+                intent.putExtra("type", "teacher");
                 startActivity(intent);
             }
         });
 
-        donation.setOnClickListener(new View.OnClickListener() {
+        other_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreatePost1Activity.this, CreateDonation1Activity.class);
+                Intent intent = new Intent(ChooseProfileType.this, SignUpActivity.class);
+                intent.putExtra("type", "community");
                 startActivity(intent);
             }
         });

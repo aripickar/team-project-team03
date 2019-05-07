@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChooseUserActivity">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -13,11 +12,17 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/colorTeacherMatchPrimary"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
     </android.support.design.widget.AppBarLayout>
 
     <Button
-        android:id="@+id/teacherCreateButton"
+        android:id="@+id/teacher"
         android:layout_width="290dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
@@ -35,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/communityMemberCreateButton"
+        android:id="@+id/community_member"
         android:layout_width="290dp"
         android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
@@ -57,11 +62,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="8dp"
-        android:text="Join as a "
+        android:text="Are you a"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
@@ -75,9 +80,9 @@
         android:layout_marginEnd="8dp"
         android:text="or"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teacherCreateButton" />
+        app:layout_constraintTop_toBottomOf="@+id/teacher " />
 
 </android.support.constraint.ConstraintLayout>

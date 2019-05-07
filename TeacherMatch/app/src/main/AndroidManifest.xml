@@ -30,6 +30,7 @@
         <activity android:name=".CreateRequest2Activity" />
         <activity android:name=".CreateDonation1Activity" />
         <activity android:name=".CreateDonation2Activity" />
+        <activity android:name=".ChooseProfileType" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
