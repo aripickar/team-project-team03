@@ -31,11 +31,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference userRef;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        final Intent passedIntent = getIntent();
+        type = (String) passedIntent.getSerializableExtra("type");
 
         emailText = findViewById(R.id.enter_username);
         passwordText = findViewById(R.id.enter_password);
@@ -51,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this, "Email is required!", Toast.LENGTH_LONG).show();
                 emailText.setError( "Email is required" );
         }
-        else if(!emailText.getText().toString().contains(".edu")){
+        else if(type.equals("teacher") && !emailText.getText().toString().contains(".edu")){
             /**
              *   You can Toast a message here that the Username is Empty
              **/
@@ -65,59 +69,40 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_LONG).show();
             passwordText.setError( "At least 6 characters" );
         }
-        else if (passwordText.getText().toString() != confirmText.getText().toString()){
+        else if (!passwordText.getText().toString().equals(confirmText.getText().toString())){
+            System.out.println("pass: " + passwordText.getText().toString());
+            System.out.println("confirm: " + confirmText.getText().toString());
             Toast.makeText(this, "Password must match!", Toast.LENGTH_LONG).show();
             passwordText.setError( "Passwords must match" );
             confirmText.setError( "Passwords must match" );
 
         }
-        switch (view.getId()) {
-            case R.id.create_account_button:
-                email = emailText.getText().toString();
-                password = passwordText.getText().toString();
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d("Account Creation", "createUserWithEmail:success");
-                                    User user = new User(mAuth.getCurrentUser());
-                                    database = FirebaseDatabase.getInstance();
-                                    userRef = database.getReference("users");
-                                    userRef.child(user.getUID()).setValue(user);
-                                    login(user);
-                                    //updateUI(user);
-                                } else {
-                                    Log.w("Account Creation", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                    //updateUI(null);
+        else{
+            switch (view.getId()) {
+                case R.id.create_account_button:
+                    email = emailText.getText().toString();
+                    password = passwordText.getText().toString();
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d("Account Creation", "createUserWithEmail:success");
+                                        User user = new User(mAuth.getCurrentUser());
+                                        database = FirebaseDatabase.getInstance();
+                                        userRef = database.getReference("users");
+                                        userRef.child(user.getUID()).setValue(user);
+                                        login(user);
+                                        //updateUI(user);
+                                    } else {
+                                        Log.w("Account Creation", "createUserWithEmail:failure", task.getException());
+                                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                        //updateUI(null);
+                                    }
                                 }
-                             }
-                        });
-
-//                else if( TextUtils.isEmpty(email.getText())){
-//                /**
-//                 *   You can Toast a message here that the Username is Empty
-//                 **/
-//                Toast.makeText(CreateProfile1Activity.this, "Email is required!",
-//                        Toast.LENGTH_LONG).show();
-//
-//                email.setError( "Email is required" );
-//
-//            }
-//
-//            else if(!email.getText().toString().contains(".edu")){
-//                /**
-//                 *   You can Toast a message here that the Username is Empty
-//                 **/
-//                Toast.makeText(CreateProfile1Activity.this, "A .edu email is required to sign up as a teacher!",
-//                        Toast.LENGTH_LONG).show();
-//
-//                email.setError( "A .edu email is required" );
-//
-//            }
-
+                            });
+            }
         }
     }
 
