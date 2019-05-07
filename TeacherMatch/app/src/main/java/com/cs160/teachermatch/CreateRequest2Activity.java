@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CreateRequest2Activity extends AppCompatActivity {
 
     public Button next;
@@ -17,6 +20,8 @@ public class CreateRequest2Activity extends AppCompatActivity {
     private Post newPost;
     private EditText description;
     private EditText other;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,9 @@ public class CreateRequest2Activity extends AppCompatActivity {
         next = findViewById(R.id.next);
         description = findViewById(R.id.input_description);
         other = findViewById(R.id.input_other);
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("posts");
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +59,9 @@ public class CreateRequest2Activity extends AppCompatActivity {
                     if (other.getText().toString().length() != 0) {
                         newPost.setOther(other.getText().toString());
                     }
+                    newPost.setPoster(user);
                     newPost.setDescription(description.getText().toString());
+                    databaseReference.child(newPost.getPostId()).setValue(newPost);
                     Intent intent = new Intent(CreateRequest2Activity.this, PostSuccessActivity.class);
                     intent.putExtra("user", user);
                     intent.putExtra("post", newPost);

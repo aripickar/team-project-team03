@@ -35,7 +35,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
     public void onBindViewHolder(@NonNull PostViewHolder postViewHolder, int position) {
         Post post = posts.get(position);
 
-        postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
+        if (post.getPoster().getProfilePicture() != 0) {
+            postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
+        }
+
 //        postViewHolder.textViewTitle.setText(post.getTitle());
         if (post.getPrice() < 10) {
             postViewHolder.textViewPrice.setText("$");

@@ -28,7 +28,7 @@ public class CreateRequest1Activity extends AppCompatActivity {
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        final Intent passedIntent = getIntent();
+        Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
 
         next = findViewById(R.id.next);

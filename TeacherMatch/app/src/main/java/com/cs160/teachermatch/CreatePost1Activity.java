@@ -46,6 +46,7 @@ public class CreatePost1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreatePost1Activity.this, CreateRequest1Activity.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
@@ -54,6 +55,7 @@ public class CreatePost1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreatePost1Activity.this, CreateDonation1Activity.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });

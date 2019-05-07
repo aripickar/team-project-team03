@@ -50,6 +50,9 @@ public class Post_feedActivity extends AppCompatActivity
         toolbar.setTitle("Active Requests");
         setSupportActionBar(toolbar);
 
+        final Intent passedIntent = getIntent();
+        user = (User)passedIntent.getSerializableExtra("user");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +63,7 @@ public class Post_feedActivity extends AppCompatActivity
             }
         });
 
-        final Intent passedIntent = getIntent();
-        user = (User)passedIntent.getSerializableExtra("user");
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
