@@ -169,7 +169,7 @@ public class Post_feedActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(Post_feedActivity.this, TeacherProfileActivity.class);
+            Intent intent = new Intent(Post_feedActivity.this, ProfilePage.class);
             intent.putExtra("user", user);
             startActivity(intent);
 

@@ -30,4 +30,5 @@
     </string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_create_com_profile2">CreateComProfile2</string>
+    <string name="title_activity_profile_page">ProfilePage</string>
 </resources>
