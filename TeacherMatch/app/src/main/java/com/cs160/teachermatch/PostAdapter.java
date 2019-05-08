@@ -19,6 +19,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Random;
 
 public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
 
@@ -60,6 +61,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
             System.out.println("expensive");
             postViewHolder.textViewPrice.setText("$$$");
         }
+
+        Random random = new Random();
+        double randomNumber = random.nextInt(10 - 0) + random.nextDouble();
+        double roundOff = Math.round(randomNumber * 100.0) / 100.0;
+
         postViewHolder.textViewSchool.setText(post.getPoster().getSchoolName());
         postViewHolder.textViewRequest.setText("REQUEST");
         postViewHolder.textViewTitle.setText(post.getTitle());
@@ -67,7 +73,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
         postViewHolder.textViewTeacher.setText("TEACHER");
         postViewHolder.textViewPoster.setText(post.getPoster().getName());
         postViewHolder.textDaysSince.setText("1 day ago");
-        postViewHolder.textDistAway.setText("2.3 miles");
+        postViewHolder.textDistAway.setText(roundOff + " miles away");
         postViewHolder.textViewDetails.setText("View Details");
 
     }
