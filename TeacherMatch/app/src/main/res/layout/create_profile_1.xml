@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture_text" />
 
     <TextView
         android:id="@+id/profilePicture_text"
@@ -24,7 +24,7 @@
         android:ems="10"
         android:text="Profile Picture"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/occupation" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
     <EditText
         android:id="@+id/occupation"
