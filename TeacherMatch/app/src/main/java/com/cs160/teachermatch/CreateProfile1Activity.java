@@ -170,6 +170,15 @@ public class CreateProfile1Activity extends AppCompatActivity {
             school.setError( "School is required" );
 
         }
+        else if( selectedImageBitmap == null){
+            /**
+             *   You can Toast a message here that the Username is Empty
+             **/
+            Toast.makeText(CreateProfile1Activity.this, "A Profile Picture is required!",
+                    Toast.LENGTH_LONG).show();
+
+
+        }
         else {
 //            user.setFirstName(firstName.getText().toString());
 //            user.setLastName(lastName.getText().toString());
