@@ -28,19 +28,18 @@ public class ChooseProfileType extends AppCompatActivity {
         other_user = findViewById(R.id.community_member);
 
         final Intent passedIntent = getIntent();
-        user = (User)passedIntent.getSerializableExtra("user");
-        firstName = findViewById(R.id.first_name);
-        lastName = findViewById(R.id.last_name);
-        email = findViewById(R.id.email_name);
-        school = findViewById(R.id.school_name);
-        //profilePicture
-        next = findViewById(R.id.next);
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                createProfile2();
-//            }
-//        });
+//        user = (User)passedIntent.getSerializableExtra("user");
+//        firstName = findViewById(R.id.first_name);
+//        lastName = findViewById(R.id.last_name);
+//        school = findViewById(R.id.school_name);
+//        //profilePicture
+//        next = findViewById(R.id.next);
+////        next.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                createProfile2();
+////            }
+////        });
 
 
         teacher.setOnClickListener(new View.OnClickListener() {

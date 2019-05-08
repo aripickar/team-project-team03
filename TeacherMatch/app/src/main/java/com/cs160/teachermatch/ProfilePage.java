@@ -1,14 +1,9 @@
 package com.cs160.teachermatch;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,59 +14,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Post_feedActivity extends AppCompatActivity
+public class ProfilePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public User user;
-
-    RecyclerView recyclerView;
-    PostAdapter adapter;
-
-    List<Post> posts;
-
-    FirebaseDatabase database;
-    DatabaseReference postsRef;
-
-
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_feed2);
+        setContentView(R.layout.activity_profile_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Active Requests");
         setSupportActionBar(toolbar);
 
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
 
 
-        posts = new ArrayList<>();
-
-        database = FirebaseDatabase.getInstance();
-        postsRef = database.getReference("posts");
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
+                Intent intent = new Intent(ProfilePage.this, CreatePost1Activity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,40 +47,6 @@ public class Post_feedActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-        postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Post post = snapshot.getValue(Post.class);
-
-                        posts.add(post);
-                    }
-                    createPosts();
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
-
-    public void createPosts(){
-        recyclerView = findViewById(R.id.post_recyclerview);
-        recyclerView.setHasFixedSize(true);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new PostAdapter(this, posts);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -130,7 +62,7 @@ public class Post_feedActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.post_feed, menu);
+        getMenuInflater().inflate(R.menu.profile_page, menu);
         return true;
     }
 
@@ -157,24 +89,21 @@ public class Post_feedActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
+            System.out.println("home");
+            Intent intent = new Intent(this, Post_feedActivity.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
+
         } else if (id == R.id.nav_messages) {
 
         } else if (id == R.id.nav_post) {
-            Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
+            Intent intent = new Intent(this, CreatePost1Activity.class);
             intent.putExtra("user", user);
             startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-        else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(Post_feedActivity.this, ProfilePage.class);
-            intent.putExtra("user", user);
-            startActivity(intent);
+        } else if (id == R.id.nav_profile) {
 
         }
 
@@ -182,16 +111,4 @@ public class Post_feedActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    public void addPosts(List<Post> posts) {
-        posts.add(
-                new Post(
-                        "Extra white board markers?",
-                        new User("test1@gmail.com", "Eric", "Jones", "https://firebasestorage.googleapis.com/v0/b/teachermatch-a4a25.appspot.com/o/uploads?alt=media&token=c2f2c038-86c8-4820-97e3-6a0e1409266b", true),
-                        "Martin Luther King Jr High",
-                        "Hi, my 8th grade class is short a few math textbooks. Looking for some algebra books to help my students prepare for highschool math!"
-                )
-        );
-    }
-
 }

@@ -11,9 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ProfilePage"
+            android:label="@string/title_activity_profile_page"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".CreateComProfile2"
+            android:label="@string/title_activity_create_com_profile2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateComProfile1"
+            android:label="@string/title_activity_main2"
+            android:parentActivityName=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cs160.teachermatch.SignUpActivity" />
+        </activity>
+        <activity
             android:name=".CreateRequest1Activity"
-            android:label="New Request"/>
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
+            android:label="New Request" /> <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         <activity
             android:name=".Post_feedActivity"
             android:label="@string/title_activity_post_feed"

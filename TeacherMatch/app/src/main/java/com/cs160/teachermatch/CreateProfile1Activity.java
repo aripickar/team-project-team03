@@ -19,18 +19,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
-
 public class CreateProfile1Activity extends AppCompatActivity {
 
     private static final int requestCode = 1234;
     private User user;
+
     private EditText firstName, lastName, email, school;
     private ImageButton profilePicture;
     private Button next;
@@ -47,7 +46,7 @@ public class CreateProfile1Activity extends AppCompatActivity {
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
         email = findViewById(R.id.email_name);
-        school = findViewById(R.id.school_name);
+        school = findViewById(R.id.occupation);
         profilePicture = findViewById(R.id.profile_picture_upload);
         next = findViewById(R.id.next);
 
@@ -152,16 +151,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             lastName.setError( "Last name is required" );
 
         }
-        else if( TextUtils.isEmpty(email.getText())){
-            /**
-             *   You can Toast a message here that the Username is Empty
-             **/
-            Toast.makeText(CreateProfile1Activity.this, "Email is required!",
-                    Toast.LENGTH_LONG).show();
-
-            email.setError( "Email is required" );
-
-        }
         else if( TextUtils.isEmpty(school.getText())){
             /**
              *   You can Toast a message here that the Username is Empty
@@ -172,16 +161,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             school.setError( "School is required" );
 
         }
-        else if(!email.getText().toString().contains(".edu")){
-            /**
-             *   You can Toast a message here that the Username is Empty
-             **/
-            Toast.makeText(CreateProfile1Activity.this, "A .edu email is required to sign up as a teacher!",
-                    Toast.LENGTH_LONG).show();
-
-            email.setError( "A .edu email is required" );
-
-        }
         else {
 //            user.setFirstName(firstName.getText().toString());
 //            user.setLastName(lastName.getText().toString());
@@ -189,7 +168,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
             //user.setProfilePicture()
             user.setFirstName(firstName.getText().toString());
             user.setLastName(lastName.getText().toString());
-            user.setEmail(email.getText().toString());
             user.setSchoolName(school.getText().toString());
             ByteArrayOutputStream bStream = new ByteArrayOutputStream();
             selectedImageBitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);

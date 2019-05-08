@@ -92,14 +92,14 @@ public class CreateProfile2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userRef.child(user.getUID()).setValue(user.toString());
-                UploadTask uploadTask = uploadToStorage(byteArray);
-                Log.d("userImageUri", mStorageRef.child(user.getUID()).getDownloadUrl().toString());
-                user.setProfilePicture(mStorageRef.child(user.getUID()).getDownloadUrl().toString());
-                Intent intent = new Intent(CreateProfile2Activity.this, Post_feedActivity.class);
-                intent.putExtra("user", user);
+        userRef.child(user.getUID()).setValue(user.toString());
+        UploadTask uploadTask = uploadToStorage(byteArray);
+        Log.d("userImageUri", mStorageRef.child(user.getUID()).getDownloadUrl().toString());
+        user.setProfilePicture(mStorageRef.child(user.getUID()).getDownloadUrl().toString());
+        Intent intent = new Intent(CreateProfile2Activity.this, Post_feedActivity.class);
+        intent.putExtra("user", user);
 
-                startActivity(intent);
+        startActivity(intent);
             }
         });
 
