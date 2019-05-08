@@ -133,9 +133,10 @@
                 android:layout_toRightOf="@id/name"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey"
+                android:textColor="@color/white"
                 android:textSize="12dp"
-                tools:text="View Details" />
+
+                tools:text="" />
 
             <TextView
                 android:id="@+id/daysSince"
@@ -151,7 +152,7 @@
                 android:layout_toRightOf="@id/name"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorTeacherMatchGrey"
+                android:textColor="@color/white"
                 android:textSize="12dp"
                 tools:text="1 day ago" />
 

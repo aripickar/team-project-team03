@@ -83,6 +83,7 @@ public class User implements Serializable {
         this.teacher = oldUser.teacher;
         this.DisplayName = oldUser.getDisplayName();
         this.schoolName = oldUser.schoolName;
+        this.phoneNumber = oldUser.phoneNumber;
     }
 
     public boolean completeUser(){
