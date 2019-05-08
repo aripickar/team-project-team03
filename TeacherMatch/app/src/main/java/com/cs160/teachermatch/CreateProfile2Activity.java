@@ -42,7 +42,7 @@ public class CreateProfile2Activity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private StorageReference mStorageRef;
     private byte[] byteArray;
-    private Uri mUri;
+    private String mUri;
 
 
     FirebaseDatabase database;
@@ -69,6 +69,8 @@ public class CreateProfile2Activity extends AppCompatActivity {
         tempUser.setSubject(classSubject.getText().toString());
         tempUser.setDescription(classDescription.getText().toString());
 
+        mUri = "uri";
+
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
@@ -94,12 +96,6 @@ public class CreateProfile2Activity extends AppCompatActivity {
             public void onClick(View v) {
         userRef.child(user.getUID()).setValue(user.toString());
         UploadTask uploadTask = uploadToStorage(byteArray);
-        Log.d("userImageUri", mStorageRef.child(user.getUID()).getDownloadUrl().toString());
-        user.setProfilePicture(mStorageRef.child(user.getUID()).getDownloadUrl().toString());
-        Intent intent = new Intent(CreateProfile2Activity.this, Post_feedActivity.class);
-        intent.putExtra("user", user);
-
-        startActivity(intent);
             }
         });
 
@@ -109,6 +105,7 @@ public class CreateProfile2Activity extends AppCompatActivity {
     public UploadTask uploadToStorage(byte[] byteArray){
 
         final UploadTask uploadTask = mStorageRef.putBytes(byteArray);
+        Log.d("UploadTask", "uploadTask is uploading");
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -139,13 +136,17 @@ public class CreateProfile2Activity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()) {
                             Uri downloadUri = task.getResult();
+                            Log.d("seeThisUri", downloadUri.toString());// This is the one you should store
+                            mUri = downloadUri.toString();
+                            user.setProfilePicture(mUri);
+                            Intent intent = new Intent(CreateProfile2Activity.this, Post_feedActivity.class);
+                            intent.putExtra("user", user);
 
-                            Log.i("seeThisUri", downloadUri.toString());// This is the one you should store
-                            user.setProfilePicture(downloadUri.toString());
+                            startActivity(intent);
 
                         } else {
-                            Log.i("wentWrong","downloadUri failure");
-                        }
+                            Log.d("wentWrong","downloadUri failure");
+                    }
                     }
                 });
             }

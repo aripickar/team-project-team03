@@ -12,6 +12,7 @@ class PostViewHolder extends RecyclerView.ViewHolder {
     TextView textViewTeacher, textViewRequest, textViewPrice, textViewSchool,
             textViewPoster, textViewTitle, textViewDescription, textDaysSince, textDistAway,
             textViewDetails;
+    String postId;
 
     public PostViewHolder(final View itemView) {
         super(itemView);
@@ -34,6 +35,7 @@ class PostViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(itemView.getContext(), PostDetailsActivity.class);
+                intent.putExtra("post", postId);
                 //intent.putExtra("Teacher", teacher.getTeacherID());
                 itemView.getContext().startActivity(intent);
             }

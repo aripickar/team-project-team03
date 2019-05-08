@@ -24,12 +24,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
 
     private Context mCtx;
     private List<Post> posts;
-    private StorageReference storageRef;
 
     public PostAdapter(Context mCtx, List<Post> posts) {
         this.mCtx = mCtx;
         this.posts = posts;
-        storageRef = FirebaseStorage.getInstance().getReference();
     }
 
     @NonNull
@@ -51,6 +49,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
             Picasso.with(mCtx).load(uri).into(postViewHolder.imageView);
             Log.d("loading", post.getPoster().getProfilePicture());
         }
+        postViewHolder.postId = posts.get(position).getPostId();
 
 //        postViewHolder.textViewTitle.setText(post.getTitle());
         if (post.getPrice() < 10) {

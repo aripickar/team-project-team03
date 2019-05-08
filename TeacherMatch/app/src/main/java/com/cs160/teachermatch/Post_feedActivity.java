@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -54,7 +55,6 @@ public class Post_feedActivity extends AppCompatActivity
 
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
-
 
         posts = new ArrayList<>();
 
