@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class TeacherProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mCtx;
@@ -51,43 +54,12 @@ public class TeacherProfileAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         System.out.println(position);
-//        if (position == 1) {
-//            DetailsAdapter.PostDetailsViewHolder postDetailsViewHolder = (DetailsAdapter.PostDetailsViewHolder) viewHolder;
-//            postDetailsViewHolder.itemPicture.setImageDrawable(mCtx.getResources().getDrawable(R.drawable.mcdougal));
-//            postDetailsViewHolder.deadline.setText("22 days");
-//            postDetailsViewHolder.itemDescription.setText(post.getDescription());
-//
-//        } else if (position == 2) {
-//            DetailsAdapter.TeacherDetailsViewHolder teacherDetailsViewHolder = (DetailsAdapter.TeacherDetailsViewHolder) viewHolder;
-//            teacherDetailsViewHolder.classroomImage.setImageDrawable(mCtx.getResources().getDrawable(R.drawable.teacher));
-//            teacherDetailsViewHolder.description.setText(teacher.getDescription());
-//            teacherDetailsViewHolder.moreDetailsButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    goToTeacherDetails(teacher);
-//                }
-//            });
-//
-//
-//        } else {
-//            PostViewHolder postViewHolder = (PostViewHolder) viewHolder;
-//
-//            postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
-//            postViewHolder.textViewTitle.setText(post.getTitle());
-//            if (post.getPrice() < 10) {
-//                postViewHolder.textViewPrice.setText("$");
-//            } else if (post.getPrice() < 50) {
-//                postViewHolder.textViewPrice.setText("$$");
-//            } else {
-//                postViewHolder.textViewPrice.setText("$$$");
-//            }
-//            postViewHolder.textViewSchool.setText(post.getSchool());
-//            postViewHolder.textViewRequest.setText("Request");
-//            postViewHolder.textViewPoster.setText(post.getPoster().getName());
-//            postViewHolder.textViewDescription.setText(post.getDescription());
-//            postViewHolder.textViewTeacher.setText(post.getPoster().getName());
-//
-//        }
+        String uri = teacher.getProfilePicture();
+
+        if (uri != null) {
+//            Picasso.with(mCtx).load(uri).into(R.layout.teacher_about_card.profilepic);
+            Log.d("loading", teacher.getProfilePicture());
+        }
     }
 
 
