@@ -85,6 +85,10 @@ public class User implements Serializable {
         this.schoolName = oldUser.schoolName;
     }
 
+    public boolean completeUser(){
+        return (this.getSchoolName() != null && this.getProfilePicture() != null);
+    }
+
     public String getTeacherID() {
         return teacherID;
     }

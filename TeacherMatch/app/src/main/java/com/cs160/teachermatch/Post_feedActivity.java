@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,9 @@ public class Post_feedActivity extends AppCompatActivity
 
     RecyclerView recyclerView;
     PostAdapter adapter;
+    ImageView mDrawProfileView;
+    TextView mNavName;
+    TextView mNavTeacherToggle;
 
     List<Post> posts;
     Toolbar toolbar;
@@ -47,7 +54,7 @@ public class Post_feedActivity extends AppCompatActivity
         setContentView(R.layout.activity_post_feed2);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Active Requests");
-        setSupportActionBar(toolbar);
+
 
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
@@ -59,8 +66,11 @@ public class Post_feedActivity extends AppCompatActivity
         database.getReference("users").child(user.getUID()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                user = dataSnapshot.getValue(User.class);
+                if (!user.completeUser()) {
+                    user = dataSnapshot.getValue(User.class);
+                }
                 createFab();
+                setSupportActionBar(toolbar);
                 layoutDrawer();
             }
 
@@ -97,6 +107,20 @@ public class Post_feedActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.post_feed, menu);
+        mDrawProfileView = findViewById(R.id.profilePicture);
+        mNavName = findViewById(R.id.Nav_name);
+        mNavTeacherToggle = findViewById(R.id.Nav_teacherToggle);
+
+        mNavName.setText(user.getName());
+        if (user.getTeacherID() =="-1") {
+            mNavTeacherToggle.setText("COMMUNITY");
+            mNavTeacherToggle.setBackgroundColor(getResources().getColor(R.color.yellow ));
+        } else {
+            mNavTeacherToggle.setText("TEACHER");
+            mNavTeacherToggle.setBackgroundColor(getResources().getColor(R.color.colorTeacherMatchPrimary ));
+        }
+        Picasso.with(getApplicationContext()).load(user.getProfilePicture()).into(mDrawProfileView);
+
         return true;
     }
 
@@ -179,6 +203,7 @@ public class Post_feedActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
