@@ -2,6 +2,8 @@ package com.cs160.teachermatch;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,7 +42,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     }
 
     private Post createPost() {
-        User user = new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true);
+        User user = new User("test1@gmail.com", "Elsa", "David", "gs://teachermatch-a4a25.appspot.com/teacher_headshot2.png", true);
         user.setDescription("I am a math and science teacher at Corte Madera Middle\\nSchool. I have been teaching since I graduated from college with a degree in Biology. This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall... ");
         return new Post(
                 "Old math textbooks needed",

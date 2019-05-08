@@ -1,14 +1,22 @@
 package com.cs160.teachermatch;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -16,10 +24,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
 
     private Context mCtx;
     private List<Post> posts;
+    private StorageReference storageRef;
 
     public PostAdapter(Context mCtx, List<Post> posts) {
         this.mCtx = mCtx;
         this.posts = posts;
+        storageRef = FirebaseStorage.getInstance().getReference();
     }
 
     @NonNull
@@ -35,8 +45,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
     public void onBindViewHolder(@NonNull PostViewHolder postViewHolder, int position) {
         Post post = posts.get(position);
 
-        if (post.getPoster().getProfilePicture() != 0) {
-            postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
+        String uri = post.getPoster().getProfilePicture();
+
+        if (uri != null) {
+            Picasso.with(mCtx).load(uri).into(postViewHolder.imageView);
+            Log.d("loading", post.getPoster().getProfilePicture());
         }
 
 //        postViewHolder.textViewTitle.setText(post.getTitle());

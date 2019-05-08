@@ -1,5 +1,7 @@
 package com.cs160.teachermatch;
 
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,7 +41,7 @@ public class PostFeedActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        addPosts(posts);
+        //addPosts(posts);
 
         adapter = new PostAdapter(this, posts);
         recyclerView.setAdapter(adapter);
@@ -49,16 +51,18 @@ public class PostFeedActivity extends AppCompatActivity {
         posts.add(
                 new Post(
                         "Extra white board markers?",
-                        new User("test1@gmail.com", "Eric", "Jones", R.drawable.teacher_headshot, true),
+                        new User("test1@gmail.com", "Eric", "Jones", "gs://teachermatch-a4a25.appspot.com/teacher_headshot2.png", true),
                         "Martin Luther King Jr High",
                         "Hi, my 8th grade class is short a few math textbooks. Looking for some algebra books to help my students prepare for highschool math!"
                 )
         );
 
+
+
         posts.add(
                 new Post(
                         "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
+                        new User("test1@gmail.com", "Elsa", "David", "gs://teachermatch-a4a25.appspot.com/teacher_headshot2.png", true),
                         "Corte Madeira",
                         "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to..."
                 )
@@ -67,7 +71,7 @@ public class PostFeedActivity extends AppCompatActivity {
         posts.add(
                 new Post(
                         "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
+                        new User("test1@gmail.com", "Elsa", "David", "gs://teachermatch-a4a25.appspot.com/teacher_headshot2.png", true),
                         "Corte Madeira",
                         "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to..."
                 )
@@ -76,25 +80,7 @@ public class PostFeedActivity extends AppCompatActivity {
         posts.add(
                 new Post(
                         "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madeira",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madeira",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
+                        new User("test1@gmail.com", "Elsa", "David", "gs://teachermatch-a4a25.appspot.com/teacher_headshot2.png", true),
                         "Corte Madeira",
                         "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers anymore! I have been buying them but they are quite expensive, if you have extra would love to..."
                 )

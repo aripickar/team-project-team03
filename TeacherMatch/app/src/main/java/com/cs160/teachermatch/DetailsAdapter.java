@@ -2,6 +2,8 @@ package com.cs160.teachermatch;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -73,7 +77,11 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else {
             PostViewHolder postViewHolder = (PostViewHolder) viewHolder;
 
-            postViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable(post.getPoster().getProfilePicture()));
+            Uri uri = Uri.parse(post.getPoster().getProfilePicture());
+
+            if (uri != null) {
+                Picasso.with(this.mCtx).load(uri.toString()).into(postViewHolder.imageView);
+            }
             postViewHolder.textViewTitle.setText(post.getTitle());
             if (post.getPrice() < 10) {
                 postViewHolder.textViewPrice.setText("$");

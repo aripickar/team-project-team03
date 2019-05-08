@@ -1,5 +1,6 @@
 package com.cs160.teachermatch;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -16,7 +17,7 @@ public class User implements Serializable {
     private Boolean teacher;
     private String firstName;
     private String lastName;
-    private int profilePicture;
+    private String profilePicture;
     private String primaryloc;
     private ArrayList<Post> posts;
     private String DisplayName;
@@ -37,11 +38,11 @@ public class User implements Serializable {
         this.UID = UUID.randomUUID().toString();
     }
 
-    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher) {
+    public User(String email, String firstName, String lastName, String profilePicture, boolean teacher) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.profilePicture = profilePicture;
+        this.profilePicture = (profilePicture);
         this.teacherID = "-1";
         this.teacher = teacher;
 //        kinda confused what this is supposed to be.
@@ -50,11 +51,11 @@ public class User implements Serializable {
 
     }
 
-    public User(String email, String firstName, String lastName, int profilePicture, boolean teacher, String UID) {
+    public User(String email, String firstName, String lastName, String profilePicture, boolean teacher, String UID) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.profilePicture = profilePicture;
+        this.profilePicture = (profilePicture);
         this.UID = UID;
         if (teacher) {
             this.teacherID = UUID.randomUUID().toString();
@@ -74,7 +75,7 @@ public class User implements Serializable {
 
     public void portUser(User oldUser) {
         this.DisplayName = oldUser.getDisplayName();
-        this.photoUrl = oldUser.getPhotoUrl();
+        this.profilePicture = oldUser.getProfilePicture();
         this.firstName = oldUser.getFirstName();
         this.lastName = oldUser.getLastName();
         this.teacher = oldUser.teacher;
@@ -203,12 +204,18 @@ public class User implements Serializable {
         this.teacher = teacher;
     }
 
-    public int getProfilePicture() {
+    public String getProfilePicture() {
+        if (profilePicture == null) {
+            return null;
+        }
         return profilePicture;
     }
 
-    public void setProfilePicture(int profilePicture) {
-        this.profilePicture = profilePicture;
+    public void setProfilePicture(String profilePicture) {
+        if (profilePicture != null) {
+            this.profilePicture = profilePicture;
+        }
+
     }
 
     public String getPrimaryloc() {

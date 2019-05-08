@@ -1,6 +1,9 @@
 package com.cs160.teachermatch;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,7 +34,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
     }
 
     private Post createPost() {
-        User user = new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true);
+        User user = new User("test1@gmail.com", "Elsa", "David", "https://firebasestorage.googleapis.com/v0/b/teachermatch-a4a25.appspot.com/o/uploads?alt=media&token=c2f2c038-86c8-4820-97e3-6a0e1409266b", true);
         user.setDescription("I am a math and science teacher at Corte Madera Middle\\nSchool. I have been teaching since I graduated from college with a degree in Biology. This is my 3rd year teaching at Corte Madera, and my 5th year teaching overall... ");
         return new Post(
                 "Old math textbooks needed",

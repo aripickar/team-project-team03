@@ -1,6 +1,8 @@
 package com.cs160.teachermatch;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -53,6 +55,12 @@ public class Post_feedActivity extends AppCompatActivity
         final Intent passedIntent = getIntent();
         user = (User)passedIntent.getSerializableExtra("user");
 
+
+        posts = new ArrayList<>();
+
+        database = FirebaseDatabase.getInstance();
+        postsRef = database.getReference("posts");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,12 +81,7 @@ public class Post_feedActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        posts = new ArrayList<>();
 
-        database = FirebaseDatabase.getInstance();
-        postsRef = database.getReference("posts");
-
-        //addPosts(posts);
 
         postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -184,55 +187,11 @@ public class Post_feedActivity extends AppCompatActivity
         posts.add(
                 new Post(
                         "Extra white board markers?",
-                        new User("test1@gmail.com", "Eric", "Jones", R.drawable.teacher_headshot, true),
+                        new User("test1@gmail.com", "Eric", "Jones", "https://firebasestorage.googleapis.com/v0/b/teachermatch-a4a25.appspot.com/o/uploads?alt=media&token=c2f2c038-86c8-4820-97e3-6a0e1409266b", true),
                         "Martin Luther King Jr High",
-                        "Hi, my 8th grade class is short a few math textbooks. Looking for some algebra books..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madeira",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madeira",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madera",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madera",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers to..."
-                )
-        );
-
-        posts.add(
-                new Post(
-                        "Old math textbooks needed",
-                        new User("test1@gmail.com", "Elsa", "David", R.drawable.teacher_headshot2, true),
-                        "Corte Madera",
-                        "Hi, due to budget cuts, our school isn\\'t providing white board markers to teachers ..."
+                        "Hi, my 8th grade class is short a few math textbooks. Looking for some algebra books to help my students prepare for highschool math!"
                 )
         );
     }
+
 }

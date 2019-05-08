@@ -1,5 +1,8 @@
 package com.cs160.teachermatch;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -9,7 +12,7 @@ public class Post implements Serializable {
     private final String postId;
     private User poster;
     private String posterName;
-    private int posterPhoto;
+    private Uri posterPhoto;
     private int intDays;
     private String name;
     private Date timePosted;
@@ -38,7 +41,7 @@ public class Post implements Serializable {
     }
 
 
-    public Post(String postId, User poster, String posterName, int posterPhoto, int intDays, String name, Date timePosted, String school, String title, String description, String details, String other, String amazonLink, Date deadline, int price, boolean request, boolean volunteer) {
+    public Post(String postId, User poster, String posterName, Uri posterPhoto, int intDays, String name, Date timePosted, String school, String title, String description, String details, String other, String amazonLink, Date deadline, int price, boolean request, boolean volunteer) {
         this.postId = UUID.randomUUID().toString();
         this.poster = poster;
         this.posterName = posterName;
@@ -78,7 +81,7 @@ public class Post implements Serializable {
         return poster.getName();
     }
 
-    public int getPosterPicture(){
+    public String getPosterPicture(){
         return poster.getProfilePicture();
     }
 
