@@ -108,8 +108,11 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     public void goToTeacherDetails(User teacher){
-        Intent intent = new Intent(mCtx, TeacherProfileActivity.class);
-        intent.putExtra("Teacher", teacher.getTeacherID());
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setType("vnd.android-dir/mms-sms");
+        intent.setData(Uri.parse("sms:" + teacher.getPhoneNumber()));
         mCtx.startActivity(intent);
     }
     class TeacherDetailsViewHolder extends RecyclerView.ViewHolder {
