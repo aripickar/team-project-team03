@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
+
 public class CreateRequest2Activity extends AppCompatActivity {
 
     public Button next;
@@ -61,6 +63,7 @@ public class CreateRequest2Activity extends AppCompatActivity {
                     }
                     newPost.setPoster(user);
                     newPost.setDescription(description.getText().toString());
+                    newPost.setTimePosted(new Date());
                     databaseReference.child(newPost.getPostId()).setValue(newPost);
                     Intent intent = new Intent(CreateRequest2Activity.this, PostSuccessActivity.class);
                     intent.putExtra("user", user);

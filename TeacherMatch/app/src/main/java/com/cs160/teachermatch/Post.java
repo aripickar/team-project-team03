@@ -4,10 +4,11 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.UUID;
 
-public class Post implements Serializable {
+public class Post implements Serializable, Comparable<Post> {
 
     private final String postId;
     private User poster;
@@ -59,6 +60,17 @@ public class Post implements Serializable {
         this.price = price;
         this.request = request;
         this.volunteer = volunteer;
+    }
+
+    @Override
+    public int compareTo(Post otherPost){
+        if (this.getTimePosted().before(otherPost.getTimePosted())){
+            return 1;
+        } else if (this.getTimePosted().equals(otherPost.getTimePosted())){
+            return (int) Math.round(Math.random());
+        } else {
+            return -1;
+        }
     }
 
     public String getOther() {
