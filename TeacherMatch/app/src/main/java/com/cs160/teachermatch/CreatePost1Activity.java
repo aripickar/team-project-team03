@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class CreatePost1Activity extends AppCompatActivity {
 
@@ -54,9 +55,11 @@ public class CreatePost1Activity extends AppCompatActivity {
         donation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreatePost1Activity.this, CreateDonation1Activity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
+                Toast toast = Toast.makeText(getApplicationContext(), "This Feature is Coming Soon!",Toast.LENGTH_LONG);
+                toast.show();
+                //Intent intent = new Intent(CreatePost1Activity.this, CreateDonation1Activity.class);
+                //intent.putExtra("user", user);
+                //startActivity(intent);
             }
         });
 
