@@ -96,8 +96,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                         //updateUI(user);
                                     } else {
                                         Log.w("Account Creation", "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                        Toast.makeText(SignUpActivity.this, "Email has been taken",
                                                 Toast.LENGTH_SHORT).show();
+                                        emailText.setError("Email has been taken");
                                         //updateUI(null);
                                     }
                                 }

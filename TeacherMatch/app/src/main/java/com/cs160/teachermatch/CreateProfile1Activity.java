@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -25,6 +27,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 public class CreateProfile1Activity extends AppCompatActivity {
 
     private static final int requestCode = 1234;
@@ -45,7 +49,6 @@ public class CreateProfile1Activity extends AppCompatActivity {
         user = (User)passedIntent.getSerializableExtra("user");
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
-        email = findViewById(R.id.email_name);
         school = findViewById(R.id.occupation);
         profilePicture = findViewById(R.id.profile_picture_upload);
         next = findViewById(R.id.next);
@@ -81,6 +84,8 @@ public class CreateProfile1Activity extends AppCompatActivity {
         if (requestCode == 1234){
             if(resultCode == RESULT_OK){
                 Uri selectedImage = data.getData();
+
+
                 String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                 Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
@@ -91,11 +96,15 @@ public class CreateProfile1Activity extends AppCompatActivity {
                 cursor.close();
 
                 this.selectedImageBitmap = getResizedBitmap(BitmapFactory.decodeFile(filePath), 120);
+                System.out.println("made it");
+                Drawable d = new BitmapDrawable(getResources(), this.selectedImageBitmap);
+                profilePicture.setBackground(d);
 
             }
         }
 
     }
+
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -159,6 +168,15 @@ public class CreateProfile1Activity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
 
             school.setError( "School is required" );
+
+        }
+        else if( selectedImageBitmap == null){
+            /**
+             *   You can Toast a message here that the Username is Empty
+             **/
+            Toast.makeText(CreateProfile1Activity.this, "A Profile Picture is required!",
+                    Toast.LENGTH_LONG).show();
+
 
         }
         else {
