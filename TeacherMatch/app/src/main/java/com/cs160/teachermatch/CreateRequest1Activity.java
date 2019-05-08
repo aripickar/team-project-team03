@@ -72,6 +72,7 @@ public class CreateRequest1Activity extends AppCompatActivity {
                 }
                 else {
                     newPost = new Post(title.getText().toString(), user, "", "");
+//                    newPost.setPrice(Integer.parseInt(cost.getText().toString()));
                     Intent intent = new Intent(CreateRequest1Activity.this, CreateRequest2Activity.class);
                     intent.putExtra("user", user);
                     intent.putExtra("post", newPost);

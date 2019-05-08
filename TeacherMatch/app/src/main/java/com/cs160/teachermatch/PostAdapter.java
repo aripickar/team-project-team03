@@ -57,9 +57,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder>{
         } else if (post.getPrice() < 50) {
             postViewHolder.textViewPrice.setText("$$");
         } else {
+            System.out.println("expensive");
             postViewHolder.textViewPrice.setText("$$$");
         }
-        postViewHolder.textViewSchool.setText(post.getSchool());
+        postViewHolder.textViewSchool.setText(post.getPoster().getSchoolName());
         postViewHolder.textViewRequest.setText("REQUEST");
         postViewHolder.textViewTitle.setText(post.getTitle());
         postViewHolder.textViewDescription.setText(post.getDescription());
