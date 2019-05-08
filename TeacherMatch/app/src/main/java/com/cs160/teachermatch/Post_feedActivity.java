@@ -1,15 +1,11 @@
 package com.cs160.teachermatch;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,16 +16,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class Post_feedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +35,7 @@ public class Post_feedActivity extends AppCompatActivity
     PostAdapter adapter;
 
     List<Post> posts;
+    Toolbar toolbar;
 
     FirebaseDatabase database;
     DatabaseReference postsRef;
@@ -49,7 +45,7 @@ public class Post_feedActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_feed2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Active Requests");
         setSupportActionBar(toolbar);
 
@@ -60,41 +56,12 @@ public class Post_feedActivity extends AppCompatActivity
 
         database = FirebaseDatabase.getInstance();
         postsRef = database.getReference("posts");
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-            }
-        });
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        database.getReference("users").child(user.getUID()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Post post = snapshot.getValue(Post.class);
-
-                        posts.add(post);
-                    }
-                    createPosts();
-
-                }
+                user = dataSnapshot.getValue(User.class);
+                createFab();
+                layoutDrawer();
             }
 
             @Override
@@ -102,7 +69,6 @@ public class Post_feedActivity extends AppCompatActivity
 
             }
         });
-
 
 
     }
@@ -172,7 +138,7 @@ public class Post_feedActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(Post_feedActivity.this, ProfilePage.class);
+            Intent intent = new Intent(Post_feedActivity.this, ProfilePageActivity.class);
             intent.putExtra("user", user);
             startActivity(intent);
 
@@ -194,4 +160,49 @@ public class Post_feedActivity extends AppCompatActivity
         );
     }
 
+    public void createFab(){
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Post_feedActivity.this, CreatePost1Activity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+
+    public void layoutDrawer(){
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Post post = snapshot.getValue(Post.class);
+
+                        posts.add(post);
+                    }
+                    createPosts();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 }

@@ -94,7 +94,7 @@ public class CreateProfile2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        userRef.child(user.getUID()).setValue(user.toString());
+        userRef.child(user.getUID()).setValue(user);
         UploadTask uploadTask = uploadToStorage(byteArray);
             }
         });

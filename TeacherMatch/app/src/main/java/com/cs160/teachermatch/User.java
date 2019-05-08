@@ -30,6 +30,8 @@ public class User implements Serializable {
     private String schoolName;
     private String classSize;
 
+    private String phoneNumber;
+
     private ArrayList<Uri> classroomPhotos;
 
     //private ArrayList<Message> messages
@@ -174,6 +176,15 @@ public class User implements Serializable {
             return "";
         }
         return firstName.concat(" " + lastName);
+    }
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public void setEmail(String email) {

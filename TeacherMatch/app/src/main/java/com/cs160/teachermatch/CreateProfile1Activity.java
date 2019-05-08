@@ -34,7 +34,7 @@ public class CreateProfile1Activity extends AppCompatActivity {
     private static final int requestCode = 1234;
     private User user;
 
-    private EditText firstName, lastName, email, school;
+    private EditText firstName, lastName, phoneNumber, school;
     private ImageButton profilePicture;
     private Button next;
     private Bitmap selectedImageBitmap;
@@ -50,6 +50,7 @@ public class CreateProfile1Activity extends AppCompatActivity {
         firstName = findViewById(R.id.first_name);
         lastName = findViewById(R.id.last_name);
         school = findViewById(R.id.occupation);
+        phoneNumber = findViewById(R.id.phoneNumber);
         profilePicture = findViewById(R.id.profile_picture_upload);
         next = findViewById(R.id.next);
 
@@ -187,6 +188,7 @@ public class CreateProfile1Activity extends AppCompatActivity {
             user.setFirstName(firstName.getText().toString());
             user.setLastName(lastName.getText().toString());
             user.setSchoolName(school.getText().toString());
+            user.setPhoneNumber(phoneNumber.getText().toString());
             ByteArrayOutputStream bStream = new ByteArrayOutputStream();
             selectedImageBitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
             byte[] byteArray = bStream.toByteArray();
