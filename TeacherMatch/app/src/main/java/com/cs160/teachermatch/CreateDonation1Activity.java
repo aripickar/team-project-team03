@@ -35,6 +35,7 @@ public class CreateDonation1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 newPost = new Post(title.getText().toString(), user, "", "");
+                newPost.setPrice(Integer.parseInt(cost.getText().toString()));
                 Intent intent = new Intent(CreateDonation1Activity.this, CreateDonation2Activity.class);
                 intent.putExtra("user", user);
                 intent.putExtra("post", newPost);
