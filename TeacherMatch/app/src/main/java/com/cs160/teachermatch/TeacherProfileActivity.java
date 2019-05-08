@@ -38,7 +38,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new TeacherProfileAdapter(this, post, poster);
+        adapter = new TeacherProfileAdapter(this, poster);
         recyclerView.setAdapter(adapter);
     }
 

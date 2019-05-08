@@ -17,7 +17,7 @@ public class TeacherProfileAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private User teacher;
 
 
-    public TeacherProfileAdapter(Context mCtx, Post post, User teacher) {
+    public TeacherProfileAdapter(Context mCtx, User teacher) {
         this.mCtx = mCtx;
         this.post = post;
         this.teacher = teacher;
